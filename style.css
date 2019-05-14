@@ -1,0 +1,94 @@
+body {
+  margin: 0px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.header {
+  height: 75px;
+  display: flex;
+}
+
+.logo {
+  width: 95px;
+  height: 75px;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logo img {
+  width: 50%;
+  height: auto;
+}
+
+.wrap-searcher {
+  display: flex;
+  height: 75px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+}
+.wrap-searcher .lupa {
+  width: 30px;
+  height: 30px;
+  margin: 5px;
+}
+.wrap-searcher .lupa img {
+  width: 100%;
+  height: auto;
+}
+.wrap-searcher .searcher {
+  height: 100%;
+  width: 90%;
+  border: 0;
+  font-size: 16px;
+  margin-left: 5px;
+}
+
+.home {
+  display: flex;
+}
+.home .nav-list {
+  width: 95px;
+  margin: 0px;
+  padding: 0px;
+}
+.home .nav-list li {
+  list-style: none;
+}
+.home .nav-list .nav-item {
+  width: 100%;
+  height: 95px;
+  margin: 0px;
+  border-top: 1px solid #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.home .nav-list .nav-item .nav-link-wrap {
+  height: 43px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.home .nav-list .nav-item .nav-link-wrap img {
+  width: 30px;
+  height: 30px;
+  margin: 5px;
+}
+.home .nav-list .nav-item .nav-link-wrap span {
+  font-size: 9px;
+  margin: 5px;
+}
+
+.container {
+  background-color: #eee;
+  width: 300px;
+}
+.container #home-header {
+  width: 300px;
+}
+
+/*# sourceMappingURL=style.css.map */
