@@ -1,8 +1,10 @@
-@mixin center(){
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+// @mixin center(){
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+// }
+@import 'assets/mixins';
+
 
 body{
     margin:0px;
@@ -41,11 +43,13 @@ img{
     }
 }   
 .searcher{    
-        height: 100%;
-        width: 90%;        
+        height: 45px;
+        width: 90%;
+        padding: 15px 0px;        
         border:0;
         font-size: 16px;
         margin-left:5px;
+        outline: none;
                 
     }
 }
@@ -84,12 +88,10 @@ img{
                 margin:5px;
             }
         } 
-    }
-        
+    }       
         
     
-}
-    
+}   
     
     
 }   
@@ -97,10 +99,24 @@ img{
 
 
 .container{
-    background-color:#eee;
-    width: 300px;
-    #home-header {
-        width: 300px;
+    background-color:#f8f8f8;
+    width: 100%;
+    margin: 0px;
+    flex: 1;
+
+    .photo-home{
+        width: 100%;
+        height: 384px;
+        overflow: hidden;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        img{
+            width: 100%;
+            height: auto;
+                    
+        
+        }
 
     }
 }
