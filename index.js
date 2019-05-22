@@ -13,17 +13,19 @@ const title = document.querySelector('.movies_list .movies_content p');
 fetch(urlPopular)
     .then(res => res.json())
     .then(data => {
-        const movies = data.results;        
+        const movies = data.results;
         const movieHeader = document.querySelector('.movies_header');
         const primerasPelis = data.results.slice(0, 5);
 
-        movieHeader.innerHTML ='';
+        movieHeader.innerHTML = '';
 
         for (let i = 0; i < movies.length; i++) {
-            const movie = movies[i];           
+            const movie = movies[i];
 
-            const itemDatos = document.createElement(`<ul class="movies_list">
-            <li class="movies_item">
+            const ul = document.createElement('ul');
+            const lista = document.createElement('li');
+
+            lista.innerHTML = '<li class="movies_item">
                 <a href="">
                     <div class="movies_poster">
                         <img src="" />
@@ -32,10 +34,13 @@ fetch(urlPopular)
                         <p class="movies_title"></p>
                     </div>
                 </a>
-            </li>
-        </ul>`);
+            </li>';
+
+            ul.appendChild(lista);
 
             
+
+
 
             movieHeader.innerHTML += itemDatos;
 
@@ -46,7 +51,7 @@ fetch(urlPopular)
 
 
 
-        
+
     })
 
 
