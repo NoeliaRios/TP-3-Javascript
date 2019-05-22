@@ -103,5 +103,12 @@ body {
   width: 100%;
   height: auto;
 }
+.container .movies_poster {
+  width: 25%;
+}
+.container .movies_poster img {
+  width: 100%;
+  height: auto;
+}
 
 /*# sourceMappingURL=style.css.map */

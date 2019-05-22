@@ -113,11 +113,17 @@ img{
         background-position: 50% 50%;
         img{
             width: 100%;
-            height: auto;
-                    
-        
+            height: auto;  
+       
         }
+    }
 
+    .movies_poster{
+        width: 25%;        
+            img{
+                width: 100%;
+                height: auto;
+            }
     }
 }
 

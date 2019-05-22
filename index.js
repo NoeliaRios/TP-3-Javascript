@@ -1,46 +1,58 @@
 const apiKey = 'd1baa5f45cdb7ee2c85290a0dfdcbfb8';
-const url = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}`;
+const urlPopular = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}`;
 
 
 
 const input = document.querySelector('#search');
-const list = document.querySelector('popular-wrapper');
-const image = document.querySelector('.popular-wrapper .list img');
-const title = document.querySelector('.popular-wrapper .list title');
+const list = document.querySelector('movies_list');
+const image = document.querySelector('.movies_list .movies_poster img');
+const title = document.querySelector('.movies_list .movies_content p');
 
 
-// const rated = document.querySelector('#rated');
-// const year = document.querySelector('#year');
-// const genre = document.querySelector('#genre');
-// const description = document.querySelector('.movie-info .description');
-// const writtenBy = document.querySelector('.movie-info .written-by span');
-// const directedBy = document.querySelector('.movie-info .directed-by span');
-// const starring = document.querySelector('.movie-info .starring span');
-// const imageBlur = document.querySelector('.poster-blur img');
 
-// input.addEventListener('keypress', function(e){
-//     if (e.keyCode ===13){
-//         const movieName = input.value;
-//         const url = `https://www.omdbapi.com/?apikey=2fb7569a&t=${movieName}`;
-
-//         fetch(url)
-//             .then(res => res.json())
-//             .then(data =>{
-//                 const movie = data.results;
-//                 const modal = '';
-
-
-//             })
-//     }
-// })
-
-
-fetch(url)
+fetch(urlPopular)
     .then(res => res.json())
-    .then(data =>{
-        const movie = data.results;
+    .then(data => {
+        const movies = data.results;        
+        const movieHeader = document.querySelector('.movies_header');
+        const primerasPelis = data.results.slice(0, 5);
+
+        movieHeader.innerHTML ='';
+
+        for (let i = 0; i < movies.length; i++) {
+            const movie = movies[i];           
+
+            const itemDatos = document.createElement(`<ul class="movies_list">
+            <li class="movies_item">
+                <a href="">
+                    <div class="movies_poster">
+                        <img src="" />
+                    </div>
+                    <div class="movies_content">
+                        <p class="movies_title"></p>
+                    </div>
+                </a>
+            </li>
+        </ul>`);
+
+            
+
+            movieHeader.innerHTML += itemDatos;
+
+        }
+
+        image.src = 'https://image.tmdb.org/t/p/original' + movies.poster_path;
+        title.innerText = movies.title;
+
+
+
         
-        
-        image.src = movie.poster_path;
-        title.innerText = movie.title;
     })
+
+
+
+
+//             if (splice) {
+//                 movieObject.splice(4,15)
+//             }
+
