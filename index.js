@@ -7,14 +7,14 @@ const input = document.querySelector('#search');
 const list = document.querySelector('movies_list');
 const image = document.querySelector('.movies_list .movies_poster img');
 const title = document.querySelector('.movies_list .movies_content p');
-
+const movieHeader = document.querySelector('.movies_header');
 
 
 fetch(urlPopular)
     .then(res => res.json())
     .then(data => {
         const movies = data.results;
-        const movieHeader = document.querySelector('.movies_header');
+        
         const primerasPelis = data.results.slice(0, 5);
 
         movieHeader.innerHTML = '';
@@ -25,24 +25,15 @@ fetch(urlPopular)
             const ul = document.createElement('ul');
             const lista = document.createElement('li');
 
-            lista.innerHTML = '<li class="movies_item">
-                <a href="">
-                    <div class="movies_poster">
-                        <img src="" />
-                    </div>
-                    <div class="movies_content">
-                        <p class="movies_title"></p>
-                    </div>
-                </a>
-            </li>';
+            lista.innerHTML = '<li class="movies_item"><a href=""><div class="movies_poster"><img src="" /></div><div class="movies_content"><p class="movies_title"></p></div></a></li>';
 
-            ul.appendChild(lista);
+            const ulis = ul.appendChild(lista);
 
             
 
 
 
-            movieHeader.innerHTML += itemDatos;
+            movieHeader.innerHTML += ulis;
 
         }
 
