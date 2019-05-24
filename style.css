@@ -27,6 +27,9 @@ body {
 .header {
   height: 75px;
   display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
 .logo {
@@ -45,10 +48,11 @@ body {
 .wrap-searcher {
   display: flex;
   height: 75px;
+  width: 1300px;
+  background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 90%;
 }
 .wrap-searcher .lupa {
   width: 30px;
@@ -73,6 +77,9 @@ body {
   display: flex;
 }
 .home .nav-list {
+  position: fixed;
+  top: 75px;
+  left: 0;
   width: 95px;
   margin: 0px;
   padding: 0px;
@@ -111,6 +118,8 @@ body {
   width: 100%;
   margin: 0px;
   flex: 1;
+  margin-top: 75px;
+  margin-left: 95px;
 }
 .container .photo-home {
   width: 100%;
@@ -135,22 +144,22 @@ body {
 .container .movies .movies_header a {
   font-size: 12px;
 }
-.container .movies .movies_list {
+.container .movies .movies_list, .container .movies .movies_list_toprated, .container .movies .movies_list_upcoming, .container .movies .movies_list_nowplaying {
   display: flex;
   justify-content: space-around;
   align-items: center;
   padding: 0px;
   margin: 0px;
 }
-.container .movies .movies_list .movies_item {
+.container .movies .movies_list .movies_item, .container .movies .movies_list_toprated .movies_item, .container .movies .movies_list_upcoming .movies_item, .container .movies .movies_list_nowplaying .movies_item {
   width: 15%;
   padding: 30px;
   list-style: none;
 }
-.container .movies .movies_list .movies_item .movies_poster {
+.container .movies .movies_list .movies_item .movies_poster, .container .movies .movies_list_toprated .movies_item .movies_poster, .container .movies .movies_list_upcoming .movies_item .movies_poster, .container .movies .movies_list_nowplaying .movies_item .movies_poster {
   width: 100%;
 }
-.container .movies .movies_list .movies_item .movies_poster img {
+.container .movies .movies_list .movies_item .movies_poster img, .container .movies .movies_list_toprated .movies_item .movies_poster img, .container .movies .movies_list_upcoming .movies_item .movies_poster img, .container .movies .movies_list_nowplaying .movies_item .movies_poster img {
   width: 100%;
   height: auto;
 }
