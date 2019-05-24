@@ -4,6 +4,7 @@
 //     align-items: center;
 // }
 @import 'assets/mixins';
+@import 'mixins/fonts';
 
 
 body{
@@ -118,12 +119,37 @@ img{
         }
     }
 
-    .movies_poster{
-        width: 25%;        
-            img{
-                width: 100%;
-                height: auto;
+    .movies{
+        padding: 30px;
+        .movies_header{
+            padding: 8px 30px;
+            display:flex;
+            justify-content: space-between;
+            a{
+                font-size: 12px;
+            }            
+        }
+        .movies_list{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding:0px;
+            margin:0px;
+            .movies_item{
+                width: 15%;
+                padding: 30px;
+                list-style: none;
+                .movies_poster{
+                    width:100%;
+                    img{
+                        width: 100%;
+                        height: auto;
+                    }
+                }
+                
             }
+        }
     }
+    
 }
 
