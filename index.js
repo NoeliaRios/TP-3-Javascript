@@ -34,18 +34,7 @@ input.addEventListener('keypress', function(e){
 
             
             
-            // searchPage.style = 'block';
-            
-
-            // document
-            //     .querySelectorAll('li.movies_item')
-            //     .forEach(function(li){
-            //         li.addEventListener('click', function(e){
-                        
-            //             photoHome.classList.add('none');
-            //             movieDivs.classList.add('none');
-            //         })
-            //     })
+           
         })
     }    
 })
