@@ -26,7 +26,12 @@ input.addEventListener('keypress', function(e){
             
             ulSearch.innerHTML = movies.map(movie => `<li class="movies_item" id="${movie.id}"><a href=""><div class="movies_poster"><img src="https://image.tmdb.org/t/p/original${movie.poster_path}"/></div><div class="movies_content"><p class="movies_title">${movie.title}</p></div></a></li>`).join('');
             divResults.classList.remove('displayNone');
-            movieDivs.classList.add('displayNone');
+            
+            divResults.classList.remove('displayNone');
+            
+            for (var i = 0; i < movieDivs.length; ++i) {
+                movieDivs[i].classList.add('displayNone');
+             }
             photoHome.classList.add('displayNone');
 
 
