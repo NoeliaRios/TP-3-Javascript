@@ -5,13 +5,14 @@ const urlUpcoming = `https://api.themoviedb.org/3/movie/upcoming?api_key=${apiKe
 const urlNowPlaying = `https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}`;
 
 const input = document.querySelector('#search');
-const searchPage = document.querySelector('#search_page');
-const photoHome = document.querySelector('.photo-home');
-const movieDivs = document.querySelectorAll('.container .movies');
-const movieList = document.querySelector('.movies .movies_list');
-const listTopRated = document.querySelector('.movies .movies_list_toprated');
-const listUpcoming = document.querySelector('.movies .movies_list_upcoming');
-const listNowPlaying = document.querySelector('.movies .movies_list_nowplaying');
+const divResults = document.querySelector('#search_page');
+const ulSearch = document.querySelector('.results_list');
+const photoHome = document.querySelector('.container #photo-home');
+const movieDivs = document.querySelectorAll('.container #movies');
+const movieList = document.querySelector('#movies .movies_list');
+const listTopRated = document.querySelector('#movies .movies_list_toprated');
+const listUpcoming = document.querySelector('#movies .movies_list_upcoming');
+const listNowPlaying = document.querySelector('#movies .movies_list_nowplaying');
 
 
 input.addEventListener('keypress', function(e){
@@ -23,19 +24,28 @@ input.addEventListener('keypress', function(e){
         .then(data=> {
             const movies = data.results;
             
-            searchPage.innerHTML = movies.map(movie => `<li class="movies_item" id="${movie.id}"><a href=""><div class="movies_poster"><img src="https://image.tmdb.org/t/p/original${movie.poster_path}"/></div><div class="movies_content"><p class="movies_title">${movie.title}</p></div></a></li>`).join('');
-            searchPage.style = 'block';
+            ulSearch.innerHTML = movies.map(movie => `<li class="movies_item" id="${movie.id}"><a href=""><div class="movies_poster"><img src="https://image.tmdb.org/t/p/original${movie.poster_path}"/></div><div class="movies_content"><p class="movies_title">${movie.title}</p></div></a></li>`).join('');
+            divResults.classList.remove('displayNone');
+            movieDivs.classList.add('displayNone');
+            photoHome.classList.add('displayNone');
+
+
+
+
+            
+            
+            // searchPage.style = 'block';
             
 
-            document
-                .querySelectorAll('li.movies_item')
-                .forEach(function(li){
-                    li.addEventListener('click', function(e){
+            // document
+            //     .querySelectorAll('li.movies_item')
+            //     .forEach(function(li){
+            //         li.addEventListener('click', function(e){
                         
-                        photoHome.classList.add('none');
-                        movieDivs.classList.add('none');
-                    })
-                })
+            //             photoHome.classList.add('none');
+            //             movieDivs.classList.add('none');
+            //         })
+            //     })
         })
     }    
 })

@@ -121,7 +121,7 @@ body {
   margin-top: 75px;
   margin-left: 95px;
 }
-.container .photo-home {
+.container #photo-home {
   width: 100%;
   height: 384px;
   overflow: hidden;
@@ -129,42 +129,47 @@ body {
   background-repeat: no-repeat;
   background-position: 50% 50%;
 }
-.container .photo-home img {
+.container #photo-home img {
   width: 100%;
   height: auto;
 }
-.container .movies {
+.container #movies {
   padding: 30px;
 }
-.container .movies .movies_header {
+.container #movies .movies_header {
   padding: 8px 30px;
   display: flex;
   justify-content: space-between;
 }
-.container .movies .movies_header a {
+.container #movies .movies_header a {
   font-size: 12px;
 }
-.container .movies .movies_list, .container .movies .movies_list_toprated, .container .movies .movies_list_upcoming, .container .movies .movies_list_nowplaying {
+
+.movies_list, .movies_list_toprated, .movies_list_upcoming, .movies_list_nowplaying, .results_list {
   display: flex;
   justify-content: space-around;
   align-items: center;
   padding: 0px;
   margin: 0px;
 }
-.container .movies .movies_list .movies_item, .container .movies .movies_list_toprated .movies_item, .container .movies .movies_list_upcoming .movies_item, .container .movies .movies_list_nowplaying .movies_item {
+.movies_list .movies_item, .movies_list_toprated .movies_item, .movies_list_upcoming .movies_item, .movies_list_nowplaying .movies_item, .results_list .movies_item {
   width: 15%;
   padding: 30px;
   list-style: none;
 }
-.container .movies .movies_list .movies_item .movies_poster, .container .movies .movies_list_toprated .movies_item .movies_poster, .container .movies .movies_list_upcoming .movies_item .movies_poster, .container .movies .movies_list_nowplaying .movies_item .movies_poster {
+.movies_list .movies_item .movies_poster, .movies_list_toprated .movies_item .movies_poster, .movies_list_upcoming .movies_item .movies_poster, .movies_list_nowplaying .movies_item .movies_poster, .results_list .movies_item .movies_poster {
   width: 100%;
 }
-.container .movies .movies_list .movies_item .movies_poster img, .container .movies .movies_list_toprated .movies_item .movies_poster img, .container .movies .movies_list_upcoming .movies_item .movies_poster img, .container .movies .movies_list_nowplaying .movies_item .movies_poster img {
+.movies_list .movies_item .movies_poster img, .movies_list_toprated .movies_item .movies_poster img, .movies_list_upcoming .movies_item .movies_poster img, .movies_list_nowplaying .movies_item .movies_poster img, .results_list .movies_item .movies_poster img {
   width: 100%;
   height: auto;
 }
 
-.none {
+.results_list {
+  flex-wrap: wrap;
+}
+
+.displayNone {
   display: none;
 }
 
