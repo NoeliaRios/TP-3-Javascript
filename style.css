@@ -164,4 +164,12 @@ body {
   height: auto;
 }
 
+.none {
+  display: none;
+}
+
+.block {
+  display: block;
+}
+
 /*# sourceMappingURL=style.css.map */
