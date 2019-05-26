@@ -141,7 +141,7 @@ img{
     }
     
 }
-.movies_list, .movies_list_toprated, .movies_list_upcoming, .movies_list_nowplaying, .results_list{
+.movies_list, .movies_list_toprated, .movies_list_upcoming, .movies_list_nowplaying, .results_list, .popular_results{
             display: flex;
             justify-content: space-around;
             align-items: center;
@@ -162,7 +162,7 @@ img{
             }
         }
 
-        .results_list{
+        .results_list, .popular_results{
             flex-wrap: wrap;
         }
 

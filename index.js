@@ -18,9 +18,10 @@ const listUpcoming = document.querySelector('#movies .movies_list_upcoming');
 const listNowPlaying = document.querySelector('#movies .movies_list_nowplaying');
 
 const popularPage = document.querySelector('#popular_page');
-const popularResults = document.querySelector('#popular_results');
+const popularResults = document.querySelector('.popular_results');
 const viewPopular = document.querySelector('#view_popular');
-
+const popularTotal = document.querySelector('.total_results');
+const popularHeader = document.querySelector('.popular_header');
 
 
 
@@ -54,6 +55,11 @@ homeLogo.onclick = function (){
 
 
 
+
+
+console.log(popularTotal);
+console.log(popularHeader);
+
 fetch(urlPopular)
     .then(res => res.json())
     .then(data => {
@@ -63,12 +69,21 @@ fetch(urlPopular)
 
         const movies = data.results;
         popularResults.innerHTML = movies.map(movie =>`<li class="movies_item" id="${movie.id}"><a href=""><div class="movies_poster"><img src="https://image.tmdb.org/t/p/original${movie.poster_path}"/></div><div class="movies_content"><p class="movies_title">${movie.title}</p></div></a></li>`).join('');
-        viewPopular.onclick = function(){
+        viewPopular.onclick = function(e){
+            e.preventDefault()
             popularPage.classList.remove('displayNone');
             photoHome.classList.add('displayNone');
+            for (var i = 0; i < movieDivs.length; ++i) {
+                movieDivs[i].classList.add('displayNone');
+            }
+
             
+            popularTotal.innerText = data.total_results;
+            popularHeader.appendChild('popularTotal');
+
         }
     })
+    
 
 fetch(urlTopRated)
     .then(res => res.json())
