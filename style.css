@@ -133,15 +133,15 @@ body {
   width: 100%;
   height: auto;
 }
-.container #movies {
+.container #movies, .container #popular_page {
   padding: 30px;
 }
-.container #movies .movies_header {
+.container .movies_header, .container .popular_header {
   padding: 8px 30px;
   display: flex;
   justify-content: space-between;
 }
-.container #movies .movies_header a {
+.container .movies_header a, .container .popular_header a {
   font-size: 12px;
 }
 

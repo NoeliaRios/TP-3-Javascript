@@ -78,8 +78,8 @@ fetch(urlPopular)
             }
 
             
-            popularTotal.innerText = data.total_results;
-            popularHeader.appendChild('popularTotal');
+            popularTotal.innerText = data.total_results + ' ' + 'results';
+            popularHeader.appendChild(popularTotal);
 
         }
     })

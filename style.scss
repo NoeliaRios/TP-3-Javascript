@@ -127,9 +127,11 @@ img{
         }
     }
 
-    #movies{
-        padding: 30px;
-        .movies_header{
+    #movies, #popular_page{
+        padding: 30px;        
+        
+    }
+    .movies_header, .popular_header{
             padding: 8px 30px;
             display:flex;
             justify-content: space-between;
@@ -137,9 +139,6 @@ img{
                 font-size: 12px;
             }            
         }
-        
-    }
-    
 }
 .movies_list, .movies_list_toprated, .movies_list_upcoming, .movies_list_nowplaying, .results_list, .popular_results{
             display: flex;
