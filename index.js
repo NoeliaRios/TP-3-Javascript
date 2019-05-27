@@ -22,7 +22,7 @@ const popularResults = document.querySelector('.popular_results');
 const viewPopular = document.querySelector('#view_popular');
 const popularTotal = document.querySelector('.total_results');
 const popularHeader = document.querySelector('.popular_header');
-
+const morePopular = document.querySelector('#more_popular');
 
 
 input.addEventListener('keypress', function (e) {
@@ -43,11 +43,12 @@ input.addEventListener('keypress', function (e) {
                     movieDivs[i].classList.add('displayNone');
                 }
                 photoHome.classList.add('displayNone');
+
             })
     }
 })
 
-homeLogo.onclick = function (){
+homeLogo.onclick = function () {
     divResults.classList.add('displayNone');
 
 }
@@ -57,8 +58,6 @@ homeLogo.onclick = function (){
 
 
 
-console.log(popularTotal);
-console.log(popularHeader);
 
 fetch(urlPopular)
     .then(res => res.json())
@@ -68,8 +67,8 @@ fetch(urlPopular)
         movieList.innerHTML = primerasPelis.map(movie => `<li class="movies_item" id="${movie.id}"><a href=""><div class="movies_poster"><img src="https://image.tmdb.org/t/p/original${movie.poster_path}"/></div><div class="movies_content"><p class="movies_title">${movie.title}</p></div></a></li>`).join('');
 
         const movies = data.results;
-        popularResults.innerHTML = movies.map(movie =>`<li class="movies_item" id="${movie.id}"><a href=""><div class="movies_poster"><img src="https://image.tmdb.org/t/p/original${movie.poster_path}"/></div><div class="movies_content"><p class="movies_title">${movie.title}</p></div></a></li>`).join('');
-        viewPopular.onclick = function(e){
+        popularResults.innerHTML = movies.map(movie => `<li class="movies_item" id="${movie.id}"><a href=""><div class="movies_poster"><img src="https://image.tmdb.org/t/p/original${movie.poster_path}"/></div><div class="movies_content"><p class="movies_title">${movie.title}</p></div></a></li>`).join('');
+        viewPopular.onclick = function (e) {
             e.preventDefault()
             popularPage.classList.remove('displayNone');
             photoHome.classList.add('displayNone');
@@ -77,13 +76,30 @@ fetch(urlPopular)
                 movieDivs[i].classList.add('displayNone');
             }
 
-            
             popularTotal.innerText = data.total_results + ' ' + 'results';
             popularHeader.appendChild(popularTotal);
 
+            function loadMorePopular() {
+                fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&page=${paginaActual}`)
+                    .then(res => res.json())
+                    .then(data => {
+                        const paginaActual = 1;
+                        
+
+
+                        paginaActual++
+
+                    })
+
+            }
+
+
+
+
+
         }
     })
-    
+
 
 fetch(urlTopRated)
     .then(res => res.json())
