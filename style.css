@@ -138,7 +138,7 @@ body {
   width: 100%;
   height: auto;
 }
-.container #movies, .container #popular_page {
+.container #movies, .container #popular_page, .container #top_rated_page {
   padding: 30px;
 }
 .container .movies_header, .container .popular_header, .container .top_rated_header {
@@ -176,10 +176,6 @@ body {
 
 .displayNone {
   display: none !important;
-}
-
-.block {
-  display: block;
 }
 
 /*# sourceMappingURL=style.css.map */
