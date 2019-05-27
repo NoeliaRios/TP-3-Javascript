@@ -14,7 +14,7 @@
     <div class="header">
 
         <div class="logo">
-            <a href=""><img src="./assets/godzilla.png" /></a>
+            <a href=""><img class="logo_pic" src="./assets/godzilla.png" /></a>
         </div>
 
         <div class="wrap-searcher">
@@ -32,16 +32,17 @@
         <ul class="nav-list">
 
             <li class="nav-item">
-                <a href=""></a>
-                <div class="nav-link-wrap">
-                    <img src="./assets/popular.png" />
-                    <span>POPULAR</span>
-                </div>
+                <a href="">
+                    <div class="nav-link-wrap" id="nav_popular">
+                        <img src="./assets/popular.png" />
+                        <span>POPULAR</span>
+                    </div>
+                </a>
             </li>
 
             <li class="nav-item">
                 <a href=""></a>
-                <div class="nav-link-wrap">
+                <div class="nav-link-wrap" id="nav_top_rated">
                     <img src="./assets/top-rated.png" />
                     <span>TOP RATED</span>
                 </div>
@@ -76,50 +77,61 @@
 
             <div id="popular_page" class="displayNone">
                 <header class="popular_header">
-                    <h2>Popular Movies</h2>                    
+                    <h2>Popular Movies</h2>
                 </header>
                 <ul class="popular_results"></ul>
                 <button id="more_popular" onclick="loadMorePopular()">Load More</button>
             </div>
 
-            <div id="photo-home">
-                <img id="home-header" src=https://ada-trabajo-practico-3-ahewymdcrw.now.sh/dist/batman.jpg?d5ae64fbf2100bf0715c7cd6243c4d8a />
-            </div>
-
-            <div id="movies">
-                <header class="movies_header">
-                    <h2>Popular Movies</h2>
-                    <p id="view_popular"><a href="" >View All→</a></p>
+            <div id="top_rated_page" class="displayNone">
+                <header class="top_rated_header">
+                    <h2>Top Rated Movies</h2>
                 </header>
-                <ul class="movies_list"></ul>
-            </div>
-
-            <div id="movies">
-                <header class="movies_header">
-                    <h2>Top Rated</h2>
-                    <a href="">View All→</a>
-                </header>
-                <ul class="movies_list_toprated"></ul>
-            </div>
-
-            <div id="movies">
-                <header class="movies_header">
-                    <h2>Upcoming</h2>
-                    <a href="">View All→</a>
-                </header>
-                <ul class="movies_list_upcoming"></ul>
-            </div>
-
-            <div id="movies">
-                <header class="movies_header">
-                    <h2>Now Playing</h2>
-                    <a href="">View All→</a>
-                </header>
-                <ul class="movies_list_nowplaying"></ul>
+                <ul class="top_rated_results"></ul>
+                <button id="more_top_rated" onclick="loadMoreTopRated()">Load More</button>
             </div>
 
 
 
+            <div id="home_container">
+                <div id="photo-home">
+                    <img id="home-header" src=https://ada-trabajo-practico-3-ahewymdcrw.now.sh/dist/batman.jpg?d5ae64fbf2100bf0715c7cd6243c4d8a />
+                </div>
+
+                <div id="movies">
+                    <header class="movies_header">
+                        <h2>Popular Movies</h2>
+                        <p id="view_popular"><a href="">View All→</a></p>
+                    </header>
+                    <ul class="movies_list"></ul>
+                </div>
+
+                <div id="movies">
+                    <header class="movies_header">
+                        <h2>Top Rated</h2>
+                        <a id="view_top_rated" href="">View All→</a>
+                    </header>
+                    <ul class="movies_list_toprated"></ul>
+                </div>
+
+                <div id="movies">
+                    <header class="movies_header">
+                        <h2>Upcoming</h2>
+                        <a href="">View All→</a>
+                    </header>
+                    <ul class="movies_list_upcoming"></ul>
+                </div>
+
+                <div id="movies">
+                    <header class="movies_header">
+                        <h2>Now Playing</h2>
+                        <a href="">View All→</a>
+                    </header>
+                    <ul class="movies_list_nowplaying"></ul>
+                </div>
+
+
+            </div>
         </div>
 
     </div>

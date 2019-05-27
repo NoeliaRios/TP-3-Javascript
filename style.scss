@@ -23,7 +23,10 @@ body{
     width: 95px;
     height: 75px;    
     background-color: black;
-    @include center();               
+    @include center();   
+    a{
+        @include center();
+    }            
 
 img{
     width: 50%;
@@ -132,7 +135,7 @@ img{
         padding: 30px;        
         
     }
-    .movies_header, .popular_header{
+    .movies_header, .popular_header, .top_rated_header{
             padding: 8px 30px;
             display:flex;
             justify-content: space-between;
@@ -141,7 +144,7 @@ img{
             }            
         }
 }
-.movies_list, .movies_list_toprated, .movies_list_upcoming, .movies_list_nowplaying, .results_list, .popular_results{
+.movies_list, .movies_list_toprated, .movies_list_upcoming, .movies_list_nowplaying, .results_list, .popular_results, .top_rated_results{
             display: flex;
             justify-content: space-around;
             align-items: center;
@@ -162,7 +165,7 @@ img{
             }
         }
 
-        .results_list, .popular_results{
+        .results_list, .popular_results, .top_rated_results{
             flex-wrap: wrap;
         }
 
