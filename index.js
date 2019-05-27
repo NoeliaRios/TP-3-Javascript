@@ -79,19 +79,7 @@ fetch(urlPopular)
             popularTotal.innerText = data.total_results + ' ' + 'results';
             popularHeader.appendChild(popularTotal);
 
-            function loadMorePopular() {
-                fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&page=${paginaActual}`)
-                    .then(res => res.json())
-                    .then(data => {
-                        const paginaActual = 1;
-                        
-
-
-                        paginaActual++
-
-                    })
-
-            }
+            
 
 
 
@@ -99,6 +87,21 @@ fetch(urlPopular)
 
         }
     })
+
+  function loadMorePopular() {
+        const paginaActual = 2;
+                fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&page=${paginaActual}`)
+                    .then(res => res.json())
+                    .then(data => {
+                        
+                        
+
+
+                        paginaActual++
+
+                    })
+
+            }  
 
 
 fetch(urlTopRated)
