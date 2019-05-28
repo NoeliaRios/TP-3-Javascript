@@ -48,34 +48,12 @@ const nowPlayingHeader = document.querySelector('.now_playing_header');
 const moreNowPlaying = document.querySelector('#more_now_playing');
 const navNowPlaying = document.querySelector('#nav_now_playing');
 
-const moviesItem = document.querySelectorAll('#movies_item');
+const moviesItem = document.querySelectorAll('.movies_item');
 const modalwrapper = document.querySelector('#modal_wrapper');
 const modalContainer = document.querySelector('.modal_container');
 
 
 
-
-
-
-
-for (var i = 0; i < moviesItem.length; i++) {
-    moviesItem[i].onclick = function (e) {
-        e.preventDefault()
-        modalwrapper.classList.remove('displayNone');
-        modalwrapper.classList.add('active');
-
-        fetch(`https://api.themoviedb.org/3/movie/${peliculaId}?api_key=${apiKey}`)
-            .then(res => res.json())
-            .then(data => {
-                const movies = data.results;
-                modalContainer.innerHTML = movies.map(movie => `<div class="modal_info_header" id="${peliculaId}"><header class="modal_header"><div class="modal_poster"><img src="https://image.tmdb.org/t/p/original${movie.poster_path}" /></div><div class="modal_title"><h1 class="modal_movie_title">${movie.title}<span>${movie.tagline}</span></h1></div></header></div><div id="modal_info_wrapper"><div class="modal_info"><div class="movie_description">${movie.overview}</div><div class="movie_details"><div class="movie_details_block"><h2 class="genres">Genres</h2><p class="texts">${movie.genres}</p></div><div class="movie_details_block"><h2 class="release">Release Date</h2><p class="texts">${movie.release_date}</p></div></div></div></div>`).join('');
-            })
-
-
-
-    }
-
-}
 
 
 
@@ -115,6 +93,26 @@ fetch(urlPopular)
         const primerasPelis = data.results.slice(0, 5);
 
         movieList.innerHTML = primerasPelis.map(movie => `<li class="movies_item" id="${movie.id}"><a href=""><div class="movies_poster"><img src="https://image.tmdb.org/t/p/original${movie.poster_path}"/></div><div class="movies_content"><p class="movies_title">${movie.title}</p></div></a></li>`).join('');
+
+        const moviesItem = document.querySelectorAll('.movies_item');
+        console.log(moviesItem)
+
+        for (var i = 0; i < moviesItem.length; i++) {
+            moviesItem[i].onclick = function (e) {
+                e.preventDefault()
+                modalwrapper.classList.remove('displayNone');
+                modalwrapper.classList.add('active');
+                const peliculaId = e.currentTarget.id;
+                fetch(`https://api.themoviedb.org/3/movie/${peliculaId}?api_key=${apiKey}`)
+                    .then(res => res.json())
+                    .then(data => {
+                        const movies = data.results;
+                        modalContainer.innerHTML = movies.map(movie => `<div class="modal_info_header" id="${movie.id}"><header class="modal_header"><div class="modal_poster"><img src="https://image.tmdb.org/t/p/original${movie.poster_path}" /></div><div class="modal_title"><h1 class="modal_movie_title">${movie.title}<span>${movie.tagline}</span></h1></div></header></div><div id="modal_info_wrapper"><div class="modal_info"><div class="movie_description">${movie.overview}</div><div class="movie_details"><div class="movie_details_block"><h2 class="genres">Genres</h2><p class="texts">${movie.genres}</p></div><div class="movie_details_block"><h2 class="release">Release Date</h2><p class="texts">${movie.release_date}</p></div></div></div></div>`).join('');
+                    })
+            }
+        }
+
+
 
         const movies = data.results;
         popularResults.innerHTML = movies.map(movie => `<li class="movies_item" id="${movie.id}"><a href=""><div class="movies_poster"><img src="https://image.tmdb.org/t/p/original${movie.poster_path}"/></div><div class="movies_content"><p class="movies_title">${movie.title}</p></div></a></li>`).join('');
