@@ -68,6 +68,10 @@ input.addEventListener('keypress', function (e) {
                 }
                 photoHome.classList.add('displayNone');
 
+                if (movie.poster_path == null) {
+                    movie.poster_path.innerHTML = movies.map(movie => `<li class="movies_item" id="${movie.id}"><a href=""><div class="movies_poster"><img src="./assets/no-image.png"/></div><div class="movies_content"><p class="movies_title">${movie.title}</p></div></a></li>`).join('');
+                }
+
             })
     }
 })
@@ -77,17 +81,32 @@ homeLogo.onclick = function () {
 
 }
 
-// navPopular.onclick = function () {
-//     photoHome.classList.add('displayNone');
-//     movieDivs.classList.add('displayNone');
+navPopular.onclick = function () {
+    photoHome.classList.add('displayNone');
+    movieDivs.classList.add('displayNone');
+    
+}
 
-// }
+navTopRated.onclick = function () {
+    photoHome.classList.add('displayNone');
+    movieDivs.classList.add('displayNone');
 
-// navTopRated.onclick = function () {
-//     photoHome.classList.add('displayNone');
-//     movieDivs.classList.add('displayNone');
+}
 
-// }
+navUpcoming.onclick = function(){
+    photoHome.classList.add('displayNone');
+    movieDivs.classList.add('displayNone');
+
+}
+
+navNowPlaying.onclick = function(e){
+    e.preventDefault();
+    photoHome.classList.add('displayNone');
+    movieDivs.classList.add('displayNone');
+    
+}
+
+
 
 
 
@@ -137,8 +156,6 @@ function loadMorePopular() {
             const movies = data.results
             let newMovies = movies.map(movie => `<li class="movies_item" id="${movie.id}"><a href=""><div class="movies_poster"><img src="https://image.tmdb.org/t/p/original${movie.poster_path}"/></div><div class="movies_content"><p class="movies_title">${movie.title}</p></div></a></li>`).join('');
             popularResults.innerHTML = popularResults.innerHTML + newMovies;
-
-
         })
 }
 
