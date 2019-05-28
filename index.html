@@ -50,7 +50,7 @@
 
             <li class="nav-item">
                 <a href=""></a>
-                <div class="nav-link-wrap">
+                <div class="nav-link-wrap" id="nav_upcoming">
                     <img src="./assets/upcoming.png" />
                     <span>UPCOMING</span>
                 </div>
@@ -58,7 +58,7 @@
 
             <li class="nav-item">
                 <a href=""></a>
-                <div class="nav-link-wrap">
+                <div class="nav-link-wrap" id="nav_now_playing">
                     <img src="./assets/now-playing.png" />
                     <span>NOW PLAYING</span>
                 </div>
@@ -80,7 +80,9 @@
                     <h2>Popular Movies</h2>
                 </header>
                 <ul class="popular_results"></ul>
-                <button id="more_popular" onclick="loadMorePopular()">Load More</button>
+                <div class="load_more_buttons">
+                    <button id="more_popular" onclick="loadMorePopular()">Load More</button>
+                </div>
             </div>
 
             <div id="top_rated_page" class="displayNone">
@@ -88,7 +90,29 @@
                     <h2>Top Rated Movies</h2>
                 </header>
                 <ul class="top_rated_results"></ul>
-                <button id="more_top_rated" onclick="loadMoreTopRated()">Load More</button>
+                <div class="load_more_buttons">
+                    <button id="more_top_rated" onclick="loadMoreTopRated()">Load More</button>
+                </div>
+            </div>
+
+            <div id="upcoming_page" class="displayNone">
+                <header class="upcoming_header">
+                    <h2>Upcoming Movies</h2>
+                </header>
+                <ul class="upcoming_results"></ul>
+                <div class="load_more_buttons">
+                    <button id="upcoming_rated" onclick="loadMoreUpcoming()">Load More</button>
+                </div>
+            </div>
+
+            <div id="now_playing_page" class="displayNone">
+                <header class="now_playing_header">
+                    <h2>Now Playing Movies</h2>
+                </header>
+                <ul class="now_playing_results"></ul>
+                <div class="load_more_buttons">
+                    <button id="more_now_playing" onclick="loadMoreNowPlaying()">Load More</button>
+                </div>
             </div>
 
 
@@ -117,7 +141,7 @@
                 <div id="movies">
                     <header class="movies_header">
                         <h2>Upcoming</h2>
-                        <a href="">View All→</a>
+                        <a id="view_upcoming" href="">View All→</a>
                     </header>
                     <ul class="movies_list_upcoming"></ul>
                 </div>
@@ -125,7 +149,7 @@
                 <div id="movies">
                     <header class="movies_header">
                         <h2>Now Playing</h2>
-                        <a href="">View All→</a>
+                        <a id="view_now_playing" href="">View All→</a>
                     </header>
                     <ul class="movies_list_nowplaying"></ul>
                 </div>

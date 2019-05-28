@@ -138,39 +138,43 @@ body {
   width: 100%;
   height: auto;
 }
-.container #movies, .container #popular_page, .container #top_rated_page {
+.container #movies, .container #popular_page, .container #top_rated_page, .container #upcoming_page, .container #now_playing_page {
   padding: 30px;
 }
-.container .movies_header, .container .popular_header, .container .top_rated_header {
+.container .movies_header, .container .popular_header, .container .top_rated_header, .container .upcoming_header, .container .now_playing_header {
   padding: 8px 30px;
   display: flex;
   justify-content: space-between;
 }
-.container .movies_header a, .container .popular_header a, .container .top_rated_header a {
+.container .movies_header a, .container .popular_header a, .container .top_rated_header a, .container .upcoming_header a, .container .now_playing_header a {
   font-size: 12px;
 }
+.container .load_more_buttons {
+  display: flex;
+  justify-content: space-around;
+}
 
-.movies_list, .movies_list_toprated, .movies_list_upcoming, .movies_list_nowplaying, .results_list, .popular_results, .top_rated_results {
+.movies_list, .movies_list_toprated, .movies_list_upcoming, .movies_list_nowplaying, .results_list, .popular_results, .top_rated_results, .upcoming_results, .now_playing_results {
   display: flex;
   justify-content: space-around;
   align-items: center;
   padding: 0px;
   margin: 0px;
 }
-.movies_list .movies_item, .movies_list_toprated .movies_item, .movies_list_upcoming .movies_item, .movies_list_nowplaying .movies_item, .results_list .movies_item, .popular_results .movies_item, .top_rated_results .movies_item {
+.movies_list .movies_item, .movies_list_toprated .movies_item, .movies_list_upcoming .movies_item, .movies_list_nowplaying .movies_item, .results_list .movies_item, .popular_results .movies_item, .top_rated_results .movies_item, .upcoming_results .movies_item, .now_playing_results .movies_item {
   width: 15%;
   padding: 30px;
   list-style: none;
 }
-.movies_list .movies_item .movies_poster, .movies_list_toprated .movies_item .movies_poster, .movies_list_upcoming .movies_item .movies_poster, .movies_list_nowplaying .movies_item .movies_poster, .results_list .movies_item .movies_poster, .popular_results .movies_item .movies_poster, .top_rated_results .movies_item .movies_poster {
+.movies_list .movies_item .movies_poster, .movies_list_toprated .movies_item .movies_poster, .movies_list_upcoming .movies_item .movies_poster, .movies_list_nowplaying .movies_item .movies_poster, .results_list .movies_item .movies_poster, .popular_results .movies_item .movies_poster, .top_rated_results .movies_item .movies_poster, .upcoming_results .movies_item .movies_poster, .now_playing_results .movies_item .movies_poster {
   width: 100%;
 }
-.movies_list .movies_item .movies_poster img, .movies_list_toprated .movies_item .movies_poster img, .movies_list_upcoming .movies_item .movies_poster img, .movies_list_nowplaying .movies_item .movies_poster img, .results_list .movies_item .movies_poster img, .popular_results .movies_item .movies_poster img, .top_rated_results .movies_item .movies_poster img {
+.movies_list .movies_item .movies_poster img, .movies_list_toprated .movies_item .movies_poster img, .movies_list_upcoming .movies_item .movies_poster img, .movies_list_nowplaying .movies_item .movies_poster img, .results_list .movies_item .movies_poster img, .popular_results .movies_item .movies_poster img, .top_rated_results .movies_item .movies_poster img, .upcoming_results .movies_item .movies_poster img, .now_playing_results .movies_item .movies_poster img {
   width: 100%;
   height: auto;
 }
 
-.results_list, .popular_results, .top_rated_results {
+.results_list, .popular_results, .top_rated_results, .upcoming_results, .now_playing_results {
   flex-wrap: wrap;
 }
 
