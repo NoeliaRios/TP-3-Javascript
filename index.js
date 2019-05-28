@@ -4,6 +4,7 @@ const urlTopRated = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiK
 const urlUpcoming = `https://api.themoviedb.org/3/movie/upcoming?api_key=${apiKey}`;
 const urlNowPlaying = `https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}`;
 
+
 const input = document.querySelector('#search');
 const divResults = document.querySelector('#search_page');
 const ulSearch = document.querySelector('.results_list');
@@ -58,9 +59,8 @@ input.addEventListener('keypress', function (e) {
             .then(data => {
                 const movies = data.results;
 
-                ulSearch.innerHTML = movies.map(movie => `<li class="movies_item" id="${movie.id}"><a href=""><div class="movies_poster"><img src="https://image.tmdb.org/t/p/original${movie.poster_path}"/></div><div class="movies_content"><p class="movies_title">${movie.title}</p></div></a></li>`).join('');
+                ulSearch.innerHTML = movies.map(movie => `<li class="movies_item" id="${movie.id}"><a href=""><div class="movies_poster"><img id="poster"src="https://image.tmdb.org/t/p/original${movie.poster_path}"/></div><div class="movies_content"><p class="movies_title">${movie.title}</p></div></a></li>`).join('');
                 divResults.classList.remove('displayNone');
-
                 divResults.classList.remove('displayNone');
 
                 for (var i = 0; i < movieDivs.length; ++i) {
@@ -68,45 +68,12 @@ input.addEventListener('keypress', function (e) {
                 }
                 photoHome.classList.add('displayNone');
 
-                if (movie.poster_path == null) {
-                    movie.poster_path.innerHTML = movies.map(movie => `<li class="movies_item" id="${movie.id}"><a href=""><div class="movies_poster"><img src="./assets/no-image.png"/></div><div class="movies_content"><p class="movies_title">${movie.title}</p></div></a></li>`).join('');
-                }
+                
+
 
             })
     }
 })
-
-homeLogo.onclick = function () {
-    divResults.classList.add('displayNone');
-
-}
-
-navPopular.onclick = function () {
-    photoHome.classList.add('displayNone');
-    movieDivs.classList.add('displayNone');
-    
-}
-
-navTopRated.onclick = function () {
-    photoHome.classList.add('displayNone');
-    movieDivs.classList.add('displayNone');
-
-}
-
-navUpcoming.onclick = function(){
-    photoHome.classList.add('displayNone');
-    movieDivs.classList.add('displayNone');
-
-}
-
-navNowPlaying.onclick = function(e){
-    e.preventDefault();
-    photoHome.classList.add('displayNone');
-    movieDivs.classList.add('displayNone');
-    
-}
-
-
 
 
 
@@ -134,18 +101,29 @@ fetch(urlPopular)
             popularHeader.appendChild(searchTotal);
         }
 
-        navPopular.onclick = function (e) {
-            e.preventDefault()
-            popularPage.classList.remove('displayNone');
-            photoHome.classList.add('displayNone');
-            for (var i = 0; i < movieDivs.length; ++i) {
-                movieDivs[i].classList.add('displayNone');
-            }
 
+    })
+
+
+
+navPopular.onclick = function (e) {
+    e.preventDefault()
+    popularPage.classList.remove('displayNone');
+    photoHome.classList.add('displayNone');
+    topRatedPage.classList.add('displayNone');
+    upcomingPage.classList.add('displayNone');
+    nowPlayingPage.classList.add('displayNone');
+    for (var i = 0; i < movieDivs.length; ++i) {
+        movieDivs[i].classList.add('displayNone');
+    }
+    fetch(urlPopular)
+        .then(res => res.json())
+        .then(data => {
             searchTotal.innerText = data.total_results + ' ' + 'results';
             popularHeader.appendChild(searchTotal);
-        }
-    })
+        })
+}
+
 
 function loadMorePopular() {
     paginaActual++
@@ -184,19 +162,29 @@ fetch(urlTopRated)
             topRatedHeader.appendChild(searchTotal);
         }
 
-        navTopRated.onclick = function (e) {
-            e.preventDefault()
-            topRatedPage.classList.remove('displayNone');
-            photoHome.classList.add('displayNone');
-            for (var i = 0; i < movieDivs.length; ++i) {
-                movieDivs[i].classList.add('displayNone');
-            }
 
-            searchTotal.innerText = data.total_results + ' ' + 'results';
-            topRatedHeader.appendChild(searchTotal);
-        }
 
     })
+
+
+navTopRated.onclick = function (e) {
+    e.preventDefault()
+    topRatedPage.classList.remove('displayNone');
+    photoHome.classList.add('displayNone');
+    popularPage.classList.add('displayNone');
+    upcomingPage.classList.add('displayNone');
+    nowPlayingPage.classList.add('displayNone');
+    for (var i = 0; i < movieDivs.length; ++i) {
+        movieDivs[i].classList.add('displayNone');
+    }
+    fetch(urlTopRated)
+        .then(res => res.json())
+        .then(data => {
+            searchTotal.innerText = data.total_results + ' ' + 'results';
+            topRatedHeader.appendChild(searchTotal);
+        })
+}
+
 
 function loadMoreTopRated() {
     paginaActual++
@@ -240,19 +228,28 @@ fetch(urlUpcoming)
             upcomingHeader.appendChild(searchTotal);
         }
 
-        navUpcoming.onclick = function (e) {
-            e.preventDefault()
-            upcomingPage.classList.remove('displayNone');
-            photoHome.classList.add('displayNone');
-            for (var i = 0; i < movieDivs.length; ++i) {
-                movieDivs[i].classList.add('displayNone');
-            }
 
-            searchTotal.innerText = data.total_results + ' ' + 'results';
-            upcomingHeader.appendChild(searchTotal);
-        }
 
     })
+
+navUpcoming.onclick = function (e) {
+    e.preventDefault()
+    upcomingPage.classList.remove('displayNone');
+    photoHome.classList.add('displayNone');
+    popularPage.classList.add('displayNone');
+    topRatedPage.classList.add('displayNone');
+    nowPlayingPage.classList.add('displayNone');
+    for (var i = 0; i < movieDivs.length; ++i) {
+        movieDivs[i].classList.add('displayNone');
+    }
+
+    fetch(urlUpcoming)
+        .then(res => res.json())
+        .then(data => {
+            searchTotal.innerText = data.total_results + ' ' + 'results';
+            upcomingHeader.appendChild(searchTotal);
+        })
+}
 
 function loadMoreUpcoming() {
     paginaActual++
@@ -291,32 +288,41 @@ fetch(urlNowPlaying)
             nowPlayingHeader.appendChild(searchTotal);
         }
 
-        navNowPlaying.onclick = function (e) {
-            e.preventDefault()
-            nowPlayingPage.classList.remove('displayNone');
-            photoHome.classList.add('displayNone');
-            for (var i = 0; i < movieDivs.length; ++i) {
-                movieDivs[i].classList.add('displayNone');
-            }
 
-            searchTotal.innerText = data.total_results + ' ' + 'results';
-            nowPlayingHeader.appendChild(searchTotal);
-        }
     })
 
-    function loadMoreNowPlaying() {
-        paginaActual++
-        fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&page=${paginaActual}`)
-            .then(res => res.json())
-            .then(data => {
-    
-                const movies = data.results
-                let newMovies = movies.map(movie => `<li class="movies_item" id="${movie.id}"><a href=""><div class="movies_poster"><img src="https://image.tmdb.org/t/p/original${movie.poster_path}"/></div><div class="movies_content"><p class="movies_title">${movie.title}</p></div></a></li>`).join('');
-                nowPlayingResults.innerHTML = nowPlayingResults.innerHTML + newMovies;
-    
-    
-            })
+navNowPlaying.onclick = function (e) {
+    e.preventDefault()
+    nowPlayingPage.classList.remove('displayNone');
+    photoHome.classList.add('displayNone');
+    popularPage.classList.add('displayNone');
+    topRatedPage.classList.add('displayNone');
+    upcomingPage.classList.add('displayNone');
+    for (var i = 0; i < movieDivs.length; ++i) {
+        movieDivs[i].classList.add('displayNone');
     }
+    upcomingPage.classList.add('displayNone');
+    fetch(urlNowPlaying)
+        .then(res => res.json())
+        .then(data => {
+            searchTotal.innerText = data.total_results + ' ' + 'results';
+            nowPlayingHeader.appendChild(searchTotal);
+        })
+}
+
+function loadMoreNowPlaying() {
+    paginaActual++
+    fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&page=${paginaActual}`)
+        .then(res => res.json())
+        .then(data => {
+
+            const movies = data.results
+            let newMovies = movies.map(movie => `<li class="movies_item" id="${movie.id}"><a href=""><div class="movies_poster"><img src="https://image.tmdb.org/t/p/original${movie.poster_path}"/></div><div class="movies_content"><p class="movies_title">${movie.title}</p></div></a></li>`).join('');
+            nowPlayingResults.innerHTML = nowPlayingResults.innerHTML + newMovies;
+
+
+        })
+}
 
 
 
