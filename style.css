@@ -182,4 +182,8 @@ body {
   display: none !important;
 }
 
+.active {
+  display: block;
+}
+
 /*# sourceMappingURL=style.css.map */
