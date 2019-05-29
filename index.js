@@ -95,7 +95,7 @@ fetch(urlPopular)
         movieList.innerHTML = primerasPelis.map(movie => `<li class="movies_item" id="${movie.id}"><a href=""><div class="movies_poster"><img src="https://image.tmdb.org/t/p/original${movie.poster_path}"/></div><div class="movies_content"><p class="movies_title">${movie.title}</p></div></a></li>`).join('');
 
         const moviesItem = document.querySelectorAll('.movies_item');
-        console.log(moviesItem)
+
 
         for (var i = 0; i < moviesItem.length; i++) {
             moviesItem[i].onclick = function (e) {
@@ -103,11 +103,17 @@ fetch(urlPopular)
                 modalwrapper.classList.remove('displayNone');
                 modalwrapper.classList.add('active');
                 const peliculaId = e.currentTarget.id;
+                console.log(peliculaId);
                 fetch(`https://api.themoviedb.org/3/movie/${peliculaId}?api_key=${apiKey}`)
                     .then(res => res.json())
                     .then(data => {
-                        const movies = data.results;
-                        modalContainer.innerHTML = movies.map(movie => `<div class="modal_info_header" id="${movie.id}"><header class="modal_header"><div class="modal_poster"><img src="https://image.tmdb.org/t/p/original${movie.poster_path}" /></div><div class="modal_title"><h1 class="modal_movie_title">${movie.title}<span>${movie.tagline}</span></h1></div></header></div><div id="modal_info_wrapper"><div class="modal_info"><div class="movie_description">${movie.overview}</div><div class="movie_details"><div class="movie_details_block"><h2 class="genres">Genres</h2><p class="texts">${movie.genres}</p></div><div class="movie_details_block"><h2 class="release">Release Date</h2><p class="texts">${movie.release_date}</p></div></div></div></div>`).join('');
+                        document.querySelector('.modal_header').style.backgroundImage = `linear-gradient(rgba(8,28,36,0.85),rgba(0,0,0,.5)), url(https://image.tmdb.org/t/p/original${data.backdrop_path})`;
+                        document.querySelector('.modal_header img').src = `https://image.tmdb.org/t/p/original${data.poster_path}`;
+                        document.querySelector('.modal_movie_title').innerHTML = data.original_title;
+                        document.querySelector('.modal_title span').innerHTML = data.tagline;
+                        document.querySelector('.movie_description').innerHTML = data.overview;
+                        document.querySelector('.texts').innerHTML = data.genres.map(g => g.name).join(', ');
+                        document.querySelector('.release_date').innerHTML = data.release_date;
                     })
             }
         }
