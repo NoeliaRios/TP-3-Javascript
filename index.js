@@ -58,7 +58,6 @@ const exitButton = document.querySelector('.exit_modal');
 const busqueda = function () {
     const moviesItem = document.querySelectorAll('.movies_item');
 
-
     for (var i = 0; i < moviesItem.length; i++) {
         moviesItem[i].onclick = function (e) {
             e.preventDefault()
@@ -83,8 +82,17 @@ const busqueda = function () {
 
 
 
+const abrirMenu = function(){
+    const burger = document.querySelector('#menu');
+    const menuDesplegado = document.querySelector('#menu_mobile');
 
+    burger.onclick = function(e){
+        e.preventDefault()
+        menuDesplegado.classList.toggle('displayNone');
 
+    }
+}
+abrirMenu();
 
 
 
@@ -106,7 +114,7 @@ input.addEventListener('keypress', function (e) {
                 }
                 photoHome.classList.add('displayNone');
 
-
+                busqueda();
 
 
             })

@@ -5,7 +5,7 @@
 // }
 @import 'assets/mixins';
 @import 'mixins/fonts';
-@import 'mixins/mediaquerys';
+
 
 
 body{
@@ -18,6 +18,8 @@ body{
 
 .header{
     height: 75px;
+    width: 100%;
+    background-color: white;
     display:flex;
     position: fixed;
     top:0;
@@ -160,7 +162,7 @@ img{
 .movies_list, .movies_list_toprated, .movies_list_upcoming, .movies_list_nowplaying, .results_list, .popular_results, .top_rated_results, .upcoming_results, .now_playing_results{
             display: flex;
             justify-content: space-around;
-            align-items: center;
+           
             padding:0px;
             margin:0px;
             .movies_item{
@@ -304,3 +306,5 @@ img{
         }
     }
 }
+
+@import 'mixins/mediaquerys';

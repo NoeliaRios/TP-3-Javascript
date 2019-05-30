@@ -22,70 +22,6 @@ a {
   color: black;
 }
 
-@media only screen and (max-width: 600px) {
-  body {
-    margin: 0px;
-  }
-
-  .header {
-    height: 50px;
-  }
-  .header .logo {
-    width: 55px;
-    height: 50px;
-  }
-  .header .wrap-searcher {
-    width: 350px;
-    height: 50px;
-    margin-left: 20px;
-    background-color: white;
-    justify-content: space-between;
-  }
-  .header .wrap-searcher .lupa {
-    width: 20px;
-    height: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .header .wrap-searcher input {
-    padding: 0px;
-  }
-  .header #menu {
-    height: 50px;
-    width: 50px;
-    display: block;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .header #menu img {
-    width: 50%;
-    height: 50%;
-  }
-
-  .home .nav-list {
-    display: none;
-  }
-
-  .container {
-    background-color: #f8f8f8;
-    width: 100%;
-    margin: 0px;
-    margin-top: 0px;
-    margin-left: 0px;
-  }
-  .container #home_container {
-    width: 100%;
-  }
-  .container #home_container #photo-home {
-    width: 100%;
-    height: 198px;
-  }
-  .container #home_container #movies .movies_list, .container #home_container #movies .movies_list_toprated, .container #home_container #movies .movies_list_upcoming, .container #home_container #movies .movies_list_nowplaying, .container #home_container #movies .results_list, .container #home_container #movies .popular_results, .container #home_container #movies .top_rated_results, .container #home_container #movies .upcoming_results, .container #home_container #movies .now_playing_results {
-    flex-wrap: wrap;
-  }
-}
 body {
   margin: 0px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
@@ -94,6 +30,8 @@ body {
 
 .header {
   height: 75px;
+  width: 100%;
+  background-color: white;
   display: flex;
   position: fixed;
   top: 0;
@@ -229,7 +167,6 @@ body {
 .movies_list, .movies_list_toprated, .movies_list_upcoming, .movies_list_nowplaying, .results_list, .popular_results, .top_rated_results, .upcoming_results, .now_playing_results {
   display: flex;
   justify-content: space-around;
-  align-items: center;
   padding: 0px;
   margin: 0px;
 }
@@ -357,6 +294,98 @@ body {
 }
 #modal_wrapper .modal_container #modal_info_wrapper .modal_info .movie_details .release_date {
   margin-top: 5px;
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    margin: 0px;
+  }
+
+  p {
+    font-size: 11px;
+  }
+
+  .header {
+    height: 50px;
+  }
+  .header .logo {
+    width: 55px;
+    height: 50px;
+  }
+  .header .wrap-searcher {
+    width: 90%;
+    height: 50px;
+    margin-left: 20px;
+    background-color: white;
+    justify-content: space-between;
+  }
+  .header .wrap-searcher .lupa {
+    width: 20px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .header .wrap-searcher input {
+    padding: 0px;
+  }
+  .header #menu {
+    height: 50px;
+    width: 50px;
+    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .header #menu img {
+    width: 50%;
+    height: 50%;
+  }
+
+  .home .nav-list {
+    display: none;
+  }
+
+  .container {
+    background-color: #f8f8f8;
+    width: 100%;
+    margin: 0px;
+    margin-top: 50px;
+    margin-left: 0px;
+  }
+  .container #home_container {
+    width: 100%;
+  }
+  .container #home_container #photo-home {
+    width: 100%;
+    height: 198px;
+  }
+  .container #home_container #movies {
+    padding: 0px;
+  }
+
+  .movies_list, .movies_list_toprated, .movies_list_upcoming, .movies_list_nowplaying, .results_list, .popular_results, .top_rated_results, .upcoming_results, .now_playing_results {
+    flex-wrap: wrap;
+  }
+  .movies_list .movies_item, .movies_list_toprated .movies_item, .movies_list_upcoming .movies_item, .movies_list_nowplaying .movies_item, .results_list .movies_item, .popular_results .movies_item, .top_rated_results .movies_item, .upcoming_results .movies_item, .now_playing_results .movies_item {
+    width: 45%;
+    padding: 10px;
+  }
+
+  #menu_mobile {
+    background-color: rgba(255, 255, 255, 0.98);
+  }
+  #menu_mobile .nav-list {
+    top: 50px;
+    background-color: white;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  #menu_mobile .nav-list .nav-item {
+    width: 49%;
+    border-left: 1px solid #eee;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
