@@ -52,6 +52,37 @@ const moviesItem = document.querySelectorAll('.movies_item');
 const modalwrapper = document.querySelector('#modal_wrapper');
 const modalContainer = document.querySelector('.modal_container');
 
+const exitButton = document.querySelector('.exit_modal');
+
+
+const busqueda = function () {
+    const moviesItem = document.querySelectorAll('.movies_item');
+
+
+    for (var i = 0; i < moviesItem.length; i++) {
+        moviesItem[i].onclick = function (e) {
+            e.preventDefault()
+            modalwrapper.classList.remove('displayNone');
+            modalwrapper.classList.add('active');
+            const peliculaId = e.currentTarget.id;
+            console.log(peliculaId);
+            fetch(`https://api.themoviedb.org/3/movie/${peliculaId}?api_key=${apiKey}`)
+                .then(res => res.json())
+                .then(data => {
+                    document.querySelector('.modal_header').style.backgroundImage = `linear-gradient(rgba(8,28,36,0.85),rgba(0,0,0,.5)), url(https://image.tmdb.org/t/p/original${data.backdrop_path})`;
+                    document.querySelector('.modal_header img').src = `https://image.tmdb.org/t/p/original${data.poster_path}`;
+                    document.querySelector('.modal_movie_title').innerHTML = data.original_title;
+                    document.querySelector('.modal_title span').innerHTML = data.tagline;
+                    document.querySelector('.movie_description').innerHTML = data.overview;
+                    document.querySelector('.texts').innerHTML = data.genres.map(g => g.name).join(', ');
+                    document.querySelector('.release_date').innerHTML = data.release_date;
+                })
+        }
+    }
+}
+
+
+
 
 
 
@@ -83,7 +114,10 @@ input.addEventListener('keypress', function (e) {
 })
 
 
-
+exitButton.onclick = function (e) {
+    e.preventDefault();
+    modalwrapper.classList.add('displayNone');
+}
 
 
 
@@ -94,29 +128,8 @@ fetch(urlPopular)
 
         movieList.innerHTML = primerasPelis.map(movie => `<li class="movies_item" id="${movie.id}"><a href=""><div class="movies_poster"><img src="https://image.tmdb.org/t/p/original${movie.poster_path}"/></div><div class="movies_content"><p class="movies_title">${movie.title}</p></div></a></li>`).join('');
 
-        const moviesItem = document.querySelectorAll('.movies_item');
-
-
-        for (var i = 0; i < moviesItem.length; i++) {
-            moviesItem[i].onclick = function (e) {
-                e.preventDefault()
-                modalwrapper.classList.remove('displayNone');
-                modalwrapper.classList.add('active');
-                const peliculaId = e.currentTarget.id;
-                console.log(peliculaId);
-                fetch(`https://api.themoviedb.org/3/movie/${peliculaId}?api_key=${apiKey}`)
-                    .then(res => res.json())
-                    .then(data => {
-                        document.querySelector('.modal_header').style.backgroundImage = `linear-gradient(rgba(8,28,36,0.85),rgba(0,0,0,.5)), url(https://image.tmdb.org/t/p/original${data.backdrop_path})`;
-                        document.querySelector('.modal_header img').src = `https://image.tmdb.org/t/p/original${data.poster_path}`;
-                        document.querySelector('.modal_movie_title').innerHTML = data.original_title;
-                        document.querySelector('.modal_title span').innerHTML = data.tagline;
-                        document.querySelector('.movie_description').innerHTML = data.overview;
-                        document.querySelector('.texts').innerHTML = data.genres.map(g => g.name).join(', ');
-                        document.querySelector('.release_date').innerHTML = data.release_date;
-                    })
-            }
-        }
+        
+        busqueda();
 
 
 
@@ -180,6 +193,9 @@ fetch(urlTopRated)
         const primerasPelis = data.results.slice(0, 5);
 
         listTopRated.innerHTML = primerasPelis.map(movie => `<li class="movies_item" id="${movie.id}"><a href=""><div class="movies_poster"><img src="https://image.tmdb.org/t/p/original${movie.poster_path}"/></div><div class="movies_content"><p class="movies_title">${movie.title}</p></div></a></li>`).join('');
+
+        busqueda();
+
 
         const movies = data.results;
         topRatedResults.innerHTML = movies.map(movie => `<li class="movies_item" id="${movie.id}"><a href=""><div class="movies_poster"><img src="https://image.tmdb.org/t/p/original${movie.poster_path}"/></div><div class="movies_content"><p class="movies_title">${movie.title}</p></div></a></li>`).join('');
@@ -247,6 +263,9 @@ fetch(urlUpcoming)
 
         listUpcoming.innerHTML = primerasPelis.map(movie => `<li class="movies_item" id="${movie.id}"><a href=""><div class="movies_poster"><img src="https://image.tmdb.org/t/p/original${movie.poster_path}"/></div><div class="movies_content"><p class="movies_title">${movie.title}</p></div></a></li>`).join('');
 
+        busqueda();
+
+
         const movies = data.results;
         upcomingResults.innerHTML = movies.map(movie => `<li class="movies_item" id="${movie.id}"><a href=""><div class="movies_poster"><img src="https://image.tmdb.org/t/p/original${movie.poster_path}"/></div><div class="movies_content"><p class="movies_title">${movie.title}</p></div></a></li>`).join('');
         viewUpcoming.onclick = function (e) {
@@ -306,6 +325,10 @@ fetch(urlNowPlaying)
         const primerasPelis = data.results.slice(0, 5);
 
         listNowPlaying.innerHTML = primerasPelis.map(movie => `<li class="movies_item" id="${movie.id}"><a href=""><div class="movies_poster"><img src="https://image.tmdb.org/t/p/original${movie.poster_path}"/></div><div class="movies_content"><p class="movies_title">${movie.title}</p></div></a></li>`).join('');
+
+        
+        busqueda();
+
 
         const movies = data.results;
         nowPlayingResults.innerHTML = movies.map(movie => `<li class="movies_item" id="${movie.id}"><a href=""><div class="movies_poster"><img src="https://image.tmdb.org/t/p/original${movie.poster_path}"/></div><div class="movies_content"><p class="movies_title">${movie.title}</p></div></a></li>`).join('');
