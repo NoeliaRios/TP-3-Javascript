@@ -312,6 +312,10 @@ body {
     width: 55px;
     height: 50px;
   }
+  .header .logo img {
+    width: 80%;
+    height: 80%;
+  }
   .header .wrap-searcher {
     width: 80%;
     height: 50px;
