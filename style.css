@@ -358,17 +358,17 @@ body {
   }
   .container #home_container #photo-home {
     width: 100%;
-    height: 198px;
+    height: auto;
   }
-  .container #home_container #movies {
-    padding: 0px;
+  .container #home_container #movies, .container #home_container #search_page, .container #home_container #popular_page, .container #home_container #top_rated_page, .container #home_container #upcoming_page, .container #home_container #now_playing_page {
+    padding: 10px;
   }
 
   .movies_list, .movies_list_toprated, .movies_list_upcoming, .movies_list_nowplaying, .results_list, .popular_results, .top_rated_results, .upcoming_results, .now_playing_results {
     flex-wrap: wrap;
   }
   .movies_list .movies_item, .movies_list_toprated .movies_item, .movies_list_upcoming .movies_item, .movies_list_nowplaying .movies_item, .results_list .movies_item, .popular_results .movies_item, .top_rated_results .movies_item, .upcoming_results .movies_item, .now_playing_results .movies_item {
-    width: 45%;
+    width: 40%;
     padding: 10px;
   }
 
