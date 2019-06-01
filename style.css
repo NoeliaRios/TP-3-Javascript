@@ -191,16 +191,12 @@ body {
   display: none !important;
 }
 
-.active {
-  display: block;
-}
-
 #modal_wrapper {
   position: fixed;
   top: 0;
   left: 0;
   z-index: 20;
-  width: 100%;
+  overflow: auto;
   height: 100vh;
   background: rgba(8, 28, 36, 0.98);
 }
@@ -235,6 +231,10 @@ body {
   border: 0px;
   background: transparent;
   color: gray;
+}
+#modal_wrapper .modal_container #modal_info_header .modal_header .exit_button .exit_modal img {
+  width: 100%;
+  height: 100%;
 }
 #modal_wrapper .modal_container #modal_info_header .modal_header .modal_poster {
   width: 40%;
@@ -296,6 +296,21 @@ body {
   margin-top: 5px;
 }
 
+button {
+  border: 1px solid #081c24;
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 11px;
+  line-height: 2;
+  letter-spacing: 0.5px;
+  padding: 5px 20px 4px;
+  cursor: pointer;
+  color: #081c24;
+  background: transparent;
+  outline: none;
+  transition: background 0.5s ease, color 0.5s ease;
+}
+
 @media only screen and (max-width: 600px) {
   body {
     margin: 0px;
@@ -346,15 +361,28 @@ body {
     height: 50%;
   }
 
+  .home {
+    margin-top: 50px;
+  }
   .home .nav-list {
-    display: none;
+    top: 50px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: rgba(255, 255, 255, 0.95);
+    visibility: hidden;
+  }
+  .home .nav-list .nav-item {
+    width: 49%;
+    border-left: 1px solid #eee;
+    border-bottom: 1px solid #eee;
   }
 
   .container {
     background-color: #f8f8f8;
     width: 100%;
     margin: 0px;
-    margin-top: 50px;
+    margin-top: 0px;
     margin-left: 0px;
   }
   .container #home_container {
@@ -417,7 +445,7 @@ body {
   #modal_wrapper .modal_container #modal_info_header .modal_header .exit_button {
     position: absolute;
     top: 0px;
-    left: 400px;
+    left: 94%;
   }
   #modal_wrapper .modal_container #modal_info_wrapper .modal_info {
     width: 100%;
@@ -426,6 +454,13 @@ body {
   #modal_wrapper .modal_container #modal_info_wrapper .modal_info .movie_details_block {
     height: 100px;
   }
+}
+.appear {
+  visibility: visible;
+}
+
+.dissapear {
+  visibility: hidden;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -189,16 +189,13 @@ img{
     display: none !important;
 }
 
-.active{
-    display: block;
-}
 
 #modal_wrapper{
     position: fixed;
     top: 0;
     left: 0;
     z-index: 20;
-    width: 100%;
+    overflow: auto;
     height: 100vh;
     background: rgba(8,28,36,.98);
     
@@ -233,6 +230,10 @@ img{
                         border:0px;
                         background: transparent;
                         color:gray;
+                        img{
+                            width:100%;
+                            height: 100%;
+                        }
                     }
                 } 
                 
@@ -307,6 +308,26 @@ img{
     }
 }
 
+button{
+    border: 1px solid #081c24;
+    text-transform: uppercase;   
+    font-weight: 300;
+    font-size: 11px;
+    line-height: 2;
+    letter-spacing: .5px;
+    padding: 5px 20px 4px;
+    cursor: pointer;
+    color: #081c24;
+    background: transparent;
+    outline: none;
+    transition: background .5s ease,color .5s ease;
+}
+
+
+
+
+
+
 
 
 @media only screen and (max-width: 600px){
@@ -362,8 +383,21 @@ img{
     }
 
     .home{
+        margin-top:50px;
+        
         .nav-list{
-            display: none;
+            top:50px;
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;            
+            background-color: rgba(255, 255, 255, .95);
+            visibility: hidden;
+            .nav-item{
+                width: 49%;
+                border-left: 1px solid #eee;
+                border-bottom: 1px solid #eee;
+                
+            }
             
         }
     }
@@ -372,7 +406,7 @@ img{
         background-color:#f8f8f8;
         width:100%;
         margin:0px;
-        margin-top: 50px;
+        margin-top: 0px;
         margin-left:0px;
         
 
@@ -389,6 +423,7 @@ img{
 
             
         }
+        
     }
 
     
@@ -453,7 +488,9 @@ img{
                     .exit_button{
                         position: absolute;
                         top:0px;
-                        left:400px;
+                        left:94%;                        
+                        
+                        
                     }
                 } 
 
@@ -474,4 +511,14 @@ img{
     }
 
     
+    
 }
+
+.appear{
+    visibility: visible;
+}
+.dissapear{
+    visibility:hidden;
+}
+
+

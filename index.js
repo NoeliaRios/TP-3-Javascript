@@ -57,7 +57,6 @@ const exitButton = document.querySelector('.exit_modal');
 
 const busqueda = function () {
     const moviesItem = document.querySelectorAll('.movies_item');
-
     for (var i = 0; i < moviesItem.length; i++) {
         moviesItem[i].onclick = function (e) {
             e.preventDefault()
@@ -84,13 +83,20 @@ const busqueda = function () {
 
 const abrirMenu = function(){
     const burger = document.querySelector('#menu');
-    const menuDesplegado = document.querySelector('#menu_mobile');
+    const menuDesplegado = document.querySelector('.nav-list');
 
-    burger.onclick = function(e){
+    burger.addEventListener ('click', function(e){
         e.preventDefault()
-        menuDesplegado.classList.toggle('displayNone');
+        // if(menuDesplegado.style.visibility === 'hidden'){
+        //     menuDesplegado.style.visibility = 'visible'
+        // } else{
+        //     menuDesplegado.style.visibility = 'hidden'
+        // }
+        
+        menuDesplegado.style.visibility = ((menuDesplegado.style.visibility!='hidden') ? 'hidden' : 'visible');
+        
 
-    }
+    })
 }
 abrirMenu();
 
@@ -156,7 +162,30 @@ fetch(urlPopular)
         }
 
 
+        // const movies = data.results;
+        // popularResults.innerHTML = movies.map(movie => `<li class="movies_item" id="${movie.id}"><a href=""><div class="movies_poster"><img src="https://image.tmdb.org/t/p/original${movie.poster_path}"/></div><div class="movies_content"><p class="movies_title">${movie.title}</p></div></a></li>`).join('');
+        // for (var i = 0; i < viewPopular.length; ++i) {
+        //     viewPopular[i].onclick = function (e) {
+        //     e.preventDefault()
+        //     popularPage.classList.remove('displayNone');
+        //     photoHome.classList.add('displayNone');
+        //     for (var i = 0; i < movieDivs.length; ++i) {
+        //         movieDivs[i].classList.add('displayNone');
+        //     }
+
+        //     searchTotal.innerText = data.total_results + ' ' + 'results';
+        //     popularHeader.appendChild(searchTotal);
+        // }
+
+        // }
+        
+
+
+
+
+
     })
+
 
 
 
@@ -188,7 +217,9 @@ function loadMorePopular() {
             const movies = data.results
             let newMovies = movies.map(movie => `<li class="movies_item" id="${movie.id}"><a href=""><div class="movies_poster"><img src="https://image.tmdb.org/t/p/original${movie.poster_path}"/></div><div class="movies_content"><p class="movies_title">${movie.title}</p></div></a></li>`).join('');
             popularResults.innerHTML = popularResults.innerHTML + newMovies;
+            busqueda();
         })
+        
 }
 
 
@@ -252,7 +283,7 @@ function loadMoreTopRated() {
             const movies = data.results
             let newMovies = movies.map(movie => `<li class="movies_item" id="${movie.id}"><a href=""><div class="movies_poster"><img src="https://image.tmdb.org/t/p/original${movie.poster_path}"/></div><div class="movies_content"><p class="movies_title">${movie.title}</p></div></a></li>`).join('');
             topRatedResults.innerHTML = topRatedResults.innerHTML + newMovies;
-
+            busqueda();
         })
 }
 
@@ -321,8 +352,9 @@ function loadMoreUpcoming() {
             let newMovies = movies.map(movie => `<li class="movies_item" id="${movie.id}"><a href=""><div class="movies_poster"><img src="https://image.tmdb.org/t/p/original${movie.poster_path}"/></div><div class="movies_content"><p class="movies_title">${movie.title}</p></div></a></li>`).join('');
             upcomingResults.innerHTML = upcomingResults.innerHTML + newMovies;
 
-
+            busqueda();
         })
+        
 }
 
 
@@ -384,9 +416,11 @@ function loadMoreNowPlaying() {
             let newMovies = movies.map(movie => `<li class="movies_item" id="${movie.id}"><a href=""><div class="movies_poster"><img src="https://image.tmdb.org/t/p/original${movie.poster_path}"/></div><div class="movies_content"><p class="movies_title">${movie.title}</p></div></a></li>`).join('');
             nowPlayingResults.innerHTML = nowPlayingResults.innerHTML + newMovies;
 
-
+            busqueda();
         })
+        
 }
+
 
 
 
