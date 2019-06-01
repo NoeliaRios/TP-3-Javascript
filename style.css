@@ -155,13 +155,18 @@ body {
   padding: 8px 30px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
-.container .movies_header a, .container .popular_header a, .container .top_rated_header a, .container .upcoming_header a, .container .now_playing_header a {
+.container .movies_header span, .container .movies_header a, .container .popular_header span, .container .popular_header a, .container .top_rated_header span, .container .top_rated_header a, .container .upcoming_header span, .container .upcoming_header a, .container .now_playing_header span, .container .now_playing_header a {
   font-size: 12px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  color: rgba(8, 28, 36, 0.5);
 }
 .container .load_more_buttons {
   display: flex;
   justify-content: space-around;
+  padding: 10px;
 }
 
 .movies_list, .movies_list_toprated, .movies_list_upcoming, .movies_list_nowplaying, .results_list, .popular_results, .top_rated_results, .upcoming_results, .now_playing_results {
@@ -392,35 +397,16 @@ button {
     width: 100%;
     height: auto;
   }
-  .container #home_container #movies, .container #home_container #search_page, .container #home_container #popular_page, .container #home_container #top_rated_page, .container #home_container #upcoming_page, .container #home_container #now_playing_page {
-    padding: 10px;
+  .container #movies, .container #search_page, .container #popular_page, .container #top_rated_page, .container #upcoming_page, .container #now_playing_page {
+    padding: 0px;
   }
 
   .movies_list, .movies_list_toprated, .movies_list_upcoming, .movies_list_nowplaying, .results_list, .popular_results, .top_rated_results, .upcoming_results, .now_playing_results {
     flex-wrap: wrap;
   }
   .movies_list .movies_item, .movies_list_toprated .movies_item, .movies_list_upcoming .movies_item, .movies_list_nowplaying .movies_item, .results_list .movies_item, .popular_results .movies_item, .top_rated_results .movies_item, .upcoming_results .movies_item, .now_playing_results .movies_item {
-    width: 40%;
+    width: 43%;
     padding: 10px;
-  }
-
-  #menu_mobile {
-    position: fixed;
-    top: 50px;
-    width: 100%;
-    height: 100vh;
-    background-color: rgba(255, 255, 255, 0.95);
-  }
-  #menu_mobile .nav-list {
-    top: 50px;
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-  }
-  #menu_mobile .nav-list .nav-item {
-    width: 49%;
-    border-left: 1px solid #eee;
-    border-bottom: 1px solid #eee;
   }
 
   #modal_wrapper {
@@ -455,14 +441,6 @@ button {
     height: 100px;
   }
 }
-.appear {
-  visibility: visible;
-}
-
-.dissapear {
-  visibility: hidden;
-}
-
 @media only screen and (min-width: 600px) and (max-width: 1024px) {
   .header .wrap-searcher {
     width: 80%;

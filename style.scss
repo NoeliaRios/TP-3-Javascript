@@ -149,16 +149,23 @@ img{
             padding: 8px 30px;
             display:flex;
             justify-content: space-between;
-            a{
+            align-items: center;
+            span, a{
                 font-size: 12px;
-            }            
+                font-weight: 300;
+                letter-spacing: .5px;
+                color: rgba(8,28,36,.5);
+            }           
         }
 
         .load_more_buttons{
             display: flex;
             justify-content: space-around;
+            padding:10px;
         }
 }
+
+
 .movies_list, .movies_list_toprated, .movies_list_upcoming, .movies_list_nowplaying, .results_list, .popular_results, .top_rated_results, .upcoming_results, .now_playing_results{
             display: flex;
             justify-content: space-around;
@@ -417,13 +424,12 @@ button{
                 height: auto;
             }
 
-            #movies, #search_page, #popular_page, #top_rated_page, #upcoming_page, #now_playing_page{
-                padding: 10px;
-            }
-
-            
+                      
         }
-        
+         #movies, #search_page, #popular_page, #top_rated_page, #upcoming_page, #now_playing_page{
+                padding: 0px;
+            } 
+
     }
 
     
@@ -432,35 +438,14 @@ button{
         flex-wrap: wrap;
         
         .movies_item{
-            width: 40%;
+            width: 43%;
             padding:10px;
         }
     }
 
-    #menu_mobile{
-        position: fixed;
-        top:50px;
-        width: 100%;
-        height: 100vh;
-        background-color: rgba(255, 255, 255, .95);
-        
-        
-        .nav-list{
-            top:50px;
-            width: 100%;
-            display: flex;
-            flex-wrap: wrap;
-            
+   
 
-            .nav-item{
-                width: 49%;
-                border-left: 1px solid #eee;
-                border-bottom: 1px solid #eee;
-                
-            }
-
-        }
-    }
+    
 
 
     #modal_wrapper{
@@ -514,12 +499,6 @@ button{
     
 }
 
-.appear{
-    visibility: visible;
-}
-.dissapear{
-    visibility:hidden;
-}
 
 
 @media only screen and (min-width :600px) and (max-width : 1024px){
