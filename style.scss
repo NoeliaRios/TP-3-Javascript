@@ -207,7 +207,7 @@ img{
 
 
         #modal_info_header{
-            height: 45%;
+            height: 350px;
             display: flex;
                        
             .modal_header{
@@ -522,3 +522,42 @@ button{
 }
 
 
+@media only screen and (min-width :600px) and (max-width : 1024px){
+    .header{
+        .wrap-searcher{
+            width:80%;
+            margin-left: 30px;
+        }
+    }
+
+    .container{
+        #movies, #search_page, #popular_page, #top_rated_page, #upcoming_page, #now_playing_page{
+        padding: 10px;        
+        
+    }
+
+    .movies_list, .movies_list_toprated, .movies_list_upcoming, .movies_list_nowplaying, .results_list, .popular_results, .top_rated_results, .upcoming_results, .now_playing_results{
+        flex-wrap: wrap;
+        
+        .movies_item{
+            width: 40%;
+            padding:10px;
+            }
+        }       
+    }
+
+    #modal_wrapper{
+       .modal_container{
+        width:100%;
+        .modal_info_header{
+            width: 100%;
+            
+        }
+    } 
+    }
+    
+
+
+
+
+}
